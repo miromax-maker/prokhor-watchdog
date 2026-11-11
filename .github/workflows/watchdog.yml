@@ -13,10 +13,9 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 5
     steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-node@v4
-        with:
-          node-version: '20'
+      # закреплено по отпечатку коммита: подмена метки v4 (как tj-actions 03.2025) не подсунет чужой код
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4.4.0
+      - run: node --version  # Node есть в образе ubuntu-latest; setup-node убран — меньше чужого кода рядом с ключом VK
       - name: check bot
         run: node check.mjs
         env:
